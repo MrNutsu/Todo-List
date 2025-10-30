@@ -30,6 +30,30 @@ public class Main{
                 String discription = sc.nextLine();
                 System.out.println("Set the date that it is being added to the list (dd/mm/yy): ");
                 String createdAt = sc.nextLine();
+                String statusOptions = """
+                        Choose a tasj status:
+                        1. To Do;
+                        2. In Progress;
+                        3. Done
+                        """;
+                System.out.println(statusOptions);
+                int choice = sc.nextInt();
+
+                switch (statusOptions) {
+
+                    case 1:
+                        status = TO_DO;
+                        break;
+                    case 2:
+                        status = IN_PROGRESS;
+                        break;
+                    case 3:
+                        status = DONE;
+                        break;
+                
+                    default:
+                        break;
+                }
 
             }
 
