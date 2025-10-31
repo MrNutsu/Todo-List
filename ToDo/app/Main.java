@@ -2,6 +2,7 @@ package ToDo.app;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ToDo.status.Status;
 import ToDo.model.Tasks;
 
 
@@ -31,7 +32,7 @@ public class Main{
                 System.out.println("Set the date that it is being added to the list (dd/mm/yy): ");
                 String createdAt = sc.nextLine();
                 String statusOptions = """
-                        Choose a tasj status:
+                        Choose a task status:
                         1. To Do;
                         2. In Progress;
                         3. Done
@@ -39,19 +40,25 @@ public class Main{
                 System.out.println(statusOptions);
                 int choice = sc.nextInt();
 
-                switch (statusOptions) {
+                Status status = null;
+
+                switch (choice){
 
                     case 1:
-                        status = TO_DO;
+
+                        //status calls Status defined as To do
+                        status = Status.TO_DO;
                         break;
                     case 2:
-                        status = IN_PROGRESS;
+                        status = Status.IN_PROGRESS;
                         break;
                     case 3:
-                        status = DONE;
+                        status = Status.DONE;
                         break;
                 
                     default:
+                        System.out.println("Invalide choice setting as defaul: To Do.");
+                        status = Status.TO_DO; // default case.
                         break;
                 }
 
