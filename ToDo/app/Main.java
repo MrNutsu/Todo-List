@@ -1,4 +1,5 @@
 package ToDo.app;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,14 +28,15 @@ public class Main{
 
                 System.out.println("Provide a descripiton for the task: ");
                 String description = sc.nextLine();
-                System.out.println("Set the date that it is being added to the list (dd/mm/yy): ");
-                String createdAt = sc.nextLine();
+                LocalDateTime createdAt = LocalDateTime.now();
+                System.out.println("Date that has being seted for: " + createdAt);
                 String statusOptions = """
                         Choose a task status:
                         1. To Do;
                         2. In Progress;
                         3. Done
                         """;
+
                 System.out.println(statusOptions);
                 int choice = sc.nextInt();
 
@@ -79,23 +81,18 @@ public class Main{
         if(tasksList.isEmpty()){
             System.out.println("You dont have any task.");
         }else{
-            System.out.println("");
-            System.out.println("Description: " + task.getDescription());
-            System.out.println("Status: " + task.getStatus());
-            System.out.println("Added: " + task.getCreatedAt());
-
-            if(task.setUpdatedAt = true){
-                System.out.println("Uptated: " + task.getUpdatedAt());
-            }else{
+            //loop for-each
+            for(Tasks t: tasksList){
                 System.out.println("");
+                System.out.println("Description: " + t.getDescription());
+                System.out.println("Status: " + t.getStatus());
+                System.out.println("Added: " + t.getCreatedAt());
+                if(!t.getUpdatedAt().isEqual(t.getCreatedAt())){
+                    System.out.println("Updated: " + t.getUpdatedAt());
+                }
+
             }
         }
 
-
-
-
-        
-        
-        
     }
 }
