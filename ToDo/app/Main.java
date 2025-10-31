@@ -12,7 +12,7 @@ public class Main{
 
         Scanner sc = new Scanner(System.in);
         // <Tasks> prevent that anyother thing other than tasks will be added to the list
-        ArrayList<Tasks> tasks = new ArrayList<>();
+        ArrayList<Tasks> tasksList = new ArrayList<>();
 
         Boolean newTask = true;
 
@@ -25,10 +25,8 @@ public class Main{
 
             if(newTask){
 
-                System.out.println("Provide the name of the task: ");
-                String id = sc.nextLine();
-                System.out.println("Provide a discripiton for the task: ");
-                String discription = sc.nextLine();
+                System.out.println("Provide a descripiton for the task: ");
+                String description = sc.nextLine();
                 System.out.println("Set the date that it is being added to the list (dd/mm/yy): ");
                 String createdAt = sc.nextLine();
                 String statusOptions = """
@@ -62,10 +60,36 @@ public class Main{
                         break;
                 }
 
+                //creats the task with its own description
+                Tasks task = new Tasks(description);
+                //sets task's status
+                task.setStatus(status);
+                //adds task
+                tasksList.add(task);
+                //consumes a remanecent enter
+                sc.nextLine();
+
+
+
             }
 
         }
 
+        System.out.println("====== Your To-Do List ======");
+        if(tasksList.isEmpty()){
+            System.out.println("You dont have any task.");
+        }else{
+            System.out.println("");
+            System.out.println("Description: " + task.getDescription());
+            System.out.println("Status: " + task.getStatus());
+            System.out.println("Added: " + task.getCreatedAt());
+
+            if(task.setUpdatedAt = true){
+                System.out.println("Uptated: " + task.getUpdatedAt());
+            }else{
+                System.out.println("");
+            }
+        }
 
 
 
