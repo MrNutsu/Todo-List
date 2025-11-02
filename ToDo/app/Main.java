@@ -93,6 +93,21 @@ public class Main {
                     break;
 
                 case 3:
+                    System.out.println("====== Your To-Do List ======");
+                    if (tasksList.isEmpty()) {
+                    System.out.println("You don't have any task.");
+                    } else {
+                        // loop for-each
+                        for (Tasks t : tasksList) {
+                        System.out.println("");
+                        System.out.println("Description: " + t.getDescription());
+                        System.out.println("Status: " + t.getStatus());
+                        System.out.println("Added: " + t.getCreatedAt());
+                        if (!t.getUpdatedAt().isEqual(t.getCreatedAt())) {
+                        System.out.println("Updated: " + t.getUpdatedAt());
+                    }
+                }
+            }
 
                     break;
 
@@ -104,23 +119,8 @@ public class Main {
                     break;
             }
 
-            /* 
-            System.out.println("====== Your To-Do List ======");
-            if (tasksList.isEmpty()) {
-                System.out.println("You don't have any task.");
-            } else {
-                // loop for-each
-                for (Tasks t : tasksList) {
-                    System.out.println("");
-                    System.out.println("Description: " + t.getDescription());
-                    System.out.println("Status: " + t.getStatus());
-                    System.out.println("Added: " + t.getCreatedAt());
-                    if (!t.getUpdatedAt().isEqual(t.getCreatedAt())) {
-                        System.out.println("Updated: " + t.getUpdatedAt());
-                    }
-                }
-            }
-            */
+        
+            
         }
 
         sc.close();
